@@ -1,0 +1,25 @@
+<html lang="">
+  <div class="deviceList 12345678">
+    <a class="deviceIcon online" href="control.php?devId=12345678">STA000123456 Device Name</a>
+    <span class="renameDevice_icon" onclick="Toggle('12345678');">RENAME</span>
+    <form class="renameForm" action="../includes/rename.php" method="post" name="12345678" id="12345678">
+      <input class="devicePageInputs" name="name" type="text" onclick="select()" placeholder="New Device Name" size="16"
+             maxlength="11">
+      <input name="devId" type="hidden" value="12345678">
+      <input name="submitRename" type="submit" value="submit">
+    </form>
+    <a class="removeDevice" onclick="return confirm('Are you sure you want to remove this device?')"
+       href="../includes/remove_device.php?devId=12345678">remove</a></div>
+  <div class="deviceList">
+    <p id="addDevice_icon" onclick="Toggle('addDevice');">add device</p>
+    <form class="toggleForm" action="" method="post" name="addDevice" id="addDevice" onsubmit="showLoading()">
+      <input id="token" name="token" type="hidden" value="12345-1512904488">
+      <input class="devicePageInputs" name="serialNumber" type="text" onclick="select()" value="STAXXXXXXXX" size="13"
+             maxlength="11"
+             style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;"
+             autocomplete="off"> -
+      <input class="devicePageInputs" name="pass" type="text" onclick="select()" value="XX" size="2" maxlength="2">
+      <input id="addDevice_submit" name="submit" type="submit" value="REGISTER">
+    </form>
+  </div>
+</html>

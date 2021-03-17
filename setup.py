@@ -1,0 +1,23 @@
+from setuptools import find_packages, setup
+
+setup(
+    name='py-salus',
+    packages=find_packages(include="salus"),
+    version='0.1.0',
+    url='https://github.com/cipacda/py-salus',
+    description='Python library to integrate with it500 Salus devices',
+    author='cipacda',
+    author_email='cipaflorescu@gmail.com',
+    license='MIT',
+    install_requires=[
+        'requests',
+        'beautifulsoup4',
+        'cachetools',
+    ],
+    setup_requires=['pytest-runner'],
+    tests_require=[
+        'pytest==4.4.1',
+        'requests_mock',
+    ],
+    test_suite='tests',
+)
