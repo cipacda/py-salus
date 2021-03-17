@@ -14,6 +14,7 @@ LOGIN_PAGE_TEXT = "loginRegister"
 INVALID_LOGIN_TEXT = "Invalid login name or password"
 INVALID_EMAIL_TEXT = "Please enter a valid email address."
 
+
 class Api:
     def __init__(self, username, password):
         self._username = username
@@ -21,7 +22,7 @@ class Api:
 
         self._session = requests.Session()
 
-        self._cache = TTLCache(maxsize=10, ttl=5*60*1000)
+        self._cache = TTLCache(maxsize=10, ttl=5 * 60 * 1000)
 
         self.login()
 
@@ -55,6 +56,7 @@ class Api:
 
     def get_devices(self):
         def request(): return self._session.get(DEVICES_URL).text
+
         devices_list = self.make_request(request)
         soup = BeautifulSoup(devices_list, "html.parser")
 

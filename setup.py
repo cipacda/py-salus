@@ -1,11 +1,12 @@
-from setuptools import find_packages, setup
+from setuptools import setup
 
 setup(
     name='py-salus',
-    packages=find_packages(include="salus"),
-    version='0.1.0',
+    packages=['salus'],
+    version='0.1.1',
     url='https://github.com/cipacda/py-salus',
     description='Python library to integrate with it500 Salus devices',
+    long_description='Library to connect to it500 Salus devices.',
     author='cipacda',
     author_email='cipaflorescu@gmail.com',
     license='MIT',
