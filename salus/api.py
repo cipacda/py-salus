@@ -73,7 +73,7 @@ class Api:
                 "current_tempZ1_set": 1,
                 "current_tempZ1": temperature
             },
-        )
+        ).text
 
         self.make_request(request)
 

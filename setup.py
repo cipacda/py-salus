@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='py-salus',
     packages=['salus'],
-    version='0.1.2',
+    version='0.1.3',
     url='https://github.com/cipacda/py-salus',
     description='Python library to integrate with it500 Salus devices',
     long_description='Library to connect to it500 Salus devices.',
