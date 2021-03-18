@@ -9,6 +9,7 @@ from salus.device_readings import DeviceReadings
 BASE_URL = "https://salus-it500.com/"
 URL_LOGIN_API = f"{BASE_URL}public/login.php"
 DEVICES_URL = f"{BASE_URL}public/devices.php"
+SET_VALUE_URL = f"{BASE_URL}includes/set.php"
 
 LOGIN_PAGE_TEXT = "loginRegister"
 INVALID_LOGIN_TEXT = "Invalid login name or password"
@@ -45,7 +46,6 @@ class Api:
 
         token = soup.find("input", {"name": "token"})['value']
         self._cache['token'] = token
-        print(f"Loaded token {token}")
         return token
 
     def get_token(self):
@@ -63,10 +63,23 @@ class Api:
         all_devices_html = soup.select("div.deviceList:has(> a.deviceIcon)")
         return [Device.create_from_html(d) for d in all_devices_html]
 
+    def set_manual_override(self, device_id: str, temperature: float):
+        def request(): return self._session.post(
+            SET_VALUE_URL,
+            {
+                "token": self.get_token(),
+                "tempUnit": 0,
+                "devId": device_id,
+                "current_tempZ1_set": 1,
+                "current_tempZ1": temperature
+            },
+        )
+
+        self.make_request(request)
+
     def get_device_reading(self, device_id):
         token = self.get_token()
         url = self.readings_url(device_id, token)
-        print(url)
         readings_data = requests.get(url).text
         response = json.loads(readings_data, object_hook=lambda d: SimpleNamespace(**d))
         return DeviceReadings(response)

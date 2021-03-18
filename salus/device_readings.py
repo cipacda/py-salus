@@ -20,3 +20,4 @@ class DeviceReadings:
     @property
     def frost(self):
         return self.frost
+
